@@ -220,7 +220,7 @@ coef(summary(lm(csat ~ C(region, contr.helmert),
                 data=states.data)))
 
 ##   See also `?contrasts', `?contr.treatment', and `?relevel'.
-
+?contrasts
 ## Exercise: interactions and factors
 ## ────────────────────────────────────────
 
@@ -228,6 +228,17 @@ coef(summary(lm(csat ~ C(region, contr.helmert),
 
 ##   1. Add on to the regression equation that you created in exercise 1 by
 ##      generating an interaction term and testing the interaction.
+energy.metro.mod3 <- lm(energy ~ metro + toxic*waste + green*income, data=states.data)
+summary(energy.metro.mod3)
+plot(energy.metro.mod3, which = c(1, 2))
 
 ##   2. Try adding region to the model. Are there significant differences
 ##      across the four regions?
+energy.metro.mod4 <- lm(energy ~ metro + toxic*waste + green*income + region, data=states.data)
+summary(energy.metro.mod4)
+plot(energy.metro.mod4, which = c(1, 2))
+
+##   The result of adding region is mixed to our model is mixed. Though it slightly increased the 
+##   Multiple R-Squared value from 0.7907 to 0.8003, the Adjusted R-Squared value slightly decreased
+##   from 0.754 to 0.7464. In sum, I would say that the inclusion of region doesn't significantly
+##   increase the effectiveness of the model.
