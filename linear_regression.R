@@ -220,7 +220,7 @@ coef(summary(lm(csat ~ C(region, contr.helmert),
                 data=states.data)))
 
 ##   See also `?contrasts', `?contr.treatment', and `?relevel'.
-?contrasts
+
 ## Exercise: interactions and factors
 ## ────────────────────────────────────────
 
