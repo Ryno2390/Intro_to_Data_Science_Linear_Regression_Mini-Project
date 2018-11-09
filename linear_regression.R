@@ -94,7 +94,7 @@ methods(class = class(sat.mod))[1:9]
 ##   • Use function methods to get more information about the fit
 
 confint(sat.mod)
-# hist(residuals(sat.mod))
+hist(residuals(sat.mod))
 
 ## Linear Regression Assumptions
 ## ─────────────────────────────────
