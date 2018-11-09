@@ -129,13 +129,35 @@ coef(summary(sat.voting.mod))
 ##   Use the /states.rds/ data set. Fit a model predicting energy consumed
 ##   per capita (energy) from the percentage of residents living in
 ##   metropolitan areas (metro). Be sure to
+
 ##   1. Examine/plot the data before fitting the model
+states.data <- readRDS("dataSets/states.rds")
+str(states.data)
+
+energy.metro <- subset(states.data, select = c("metro", "energy"))
+str(energy.metro)
+
+plot(energy.metro)
+
 ##   2. Print and interpret the model `summary'
+energy.metro.mod <- lm(energy ~ metro, data=energy.metro)
+summary(energy.metro.mod)
+
 ##   3. `plot' the model to look for deviations from modeling assumptions
+plot(energy.metro.mod, which = c(1, 2))
 
 ##   Select one or more additional predictors to add to your model and
-##   repeat steps 1-3. Is this model significantly better than the model
+##   repeat steps 1-3.
+energy.metro.mod2 <- lm(energy ~ metro + toxic + green, data=states.data)
+summary(energy.metro.mod2)
+plot(energy.metro.mod2, which = c(1, 2))
+
+##   Is this model significantly better than the model
 ##   with /metro/ as the only predictor?
+
+##   Yes, if we compare the adjusted R-squared values for energy.metro.mod and 
+##   energy.metro.mod2 we see a significant increase in energy.metro.mod2 after
+##   including "toxic" and "green" - specifically, from 0.097 to 0.7483.
 
 ## Interactions and factors
 ## ══════════════════════════
