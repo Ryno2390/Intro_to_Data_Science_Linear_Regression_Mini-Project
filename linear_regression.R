@@ -143,6 +143,11 @@ plot(energy.metro)
 energy.metro.mod <- lm(energy ~ metro, data=energy.metro)
 summary(energy.metro.mod)
 
+##   It appears that per capita energy consumption is not very well predicted
+##   by the percentage of residents living in metropolitan areas. The R-Squared
+##   values are extremely low and the "metro" variable has a relatively low 
+##   significance in the model.
+
 ##   3. `plot' the model to look for deviations from modeling assumptions
 plot(energy.metro.mod, which = c(1, 2))
 
@@ -157,7 +162,8 @@ plot(energy.metro.mod2, which = c(1, 2))
 
 ##   Yes, if we compare the adjusted R-squared values for energy.metro.mod and 
 ##   energy.metro.mod2 we see a significant increase in energy.metro.mod2 after
-##   including "toxic" and "green" - specifically, from 0.097 to 0.7483.
+##   including the variables "toxic" and "green" - specifically, it rose from 
+##   0.097 to 0.7483.
 
 ## Interactions and factors
 ## ══════════════════════════
