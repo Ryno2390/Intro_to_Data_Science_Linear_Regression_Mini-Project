@@ -176,11 +176,11 @@ plot(energy.metro.mod2, which = c(1, 2))
 ##   For example: Does the association between expense and SAT scores
 ##   depend on the median income in the state?
 
-  #Add the interaction to the model
+#Add the interaction to the model
 sat.expense.by.percent <- lm(csat ~ expense*income,
                              data=states.data) 
 #Show the results
-  coef(summary(sat.expense.by.percent)) # show regression coefficients table
+coef(summary(sat.expense.by.percent)) # show regression coefficients table
 
 ## Regression with categorical predictors
 ## ──────────────────────────────────────────
